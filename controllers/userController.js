@@ -53,7 +53,7 @@ exports.loginUser = async (req, res) => {
 exports.verifyPasskey = async (req, res) => {
     const { idno, passkey } = req.body;
     const currentPasskey = global.currentPasskey;
-
+    
     const user = await User.findOne({ idno });
     if (!user) return res.status(404).json({ error: "User not found" });
 

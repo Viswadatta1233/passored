@@ -6,6 +6,8 @@ const connectDB = require("./config/db");
 const adminRoutes = require("./routes/adminRoutes");
 const userRoutes = require("./routes/userRoutes");
 const passkeyRoutes = require("./routes/passkeyRoutes");
+const sessionRoutes = require("./routes/sessionRoutes");
+
 require("dotenv").config();
 const Passkey = require("./models/Passkey");
 
@@ -26,6 +28,7 @@ connectDB();
 app.use("/api/admin", adminRoutes);
 app.use("/api/user", userRoutes);
 app.use("/api/passkey", passkeyRoutes);
+app.use("/api/session", sessionRoutes); 
 
 global.currentPasskey = ""; // Initialize global passkey
 
